@@ -1,0 +1,18 @@
+# Base image for Python environment
+FROM python:3.9
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements file (if applicable)
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Copy your Python script (main.py in this case)
+COPY main.py .
+
+# Expose port (optional, if needed for communication)
+# EXPOSE 8080
+
+# Command to run the script
+CMD ["python", "main.py"]
